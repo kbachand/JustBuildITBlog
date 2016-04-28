@@ -13,6 +13,7 @@ before_action :set_blog_post, only: [:show, :edit, :update, :destory]
   end
 
   def show
+    @comment = Comment.new 
   end
 
   def create

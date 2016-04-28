@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'comments/edit'
 
 resources :blog_posts
-resources :comments, only: [:edit]
+resources :comments, only: [:edit, :create, :update, :destory]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
