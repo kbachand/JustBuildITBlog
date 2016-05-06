@@ -1,0 +1,48 @@
+
+.jumbotron {
+  margin-top: -61px;
+  background-image: url("https://images.unsplash.com/photo-1438932150719-500cc59a04cd?crop=entropy&fit=crop&fm=jpg&h=650&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1300");
+}
+
+.jumbotron h1 {
+  color: white;
+  margin-left: 12px;
+}
+
+.jumbotron p {
+  color: white;
+  margin-left: 12px;
+}
+
+.scroll {
+    max-height: 500px;
+    max-width: 500px;
+    overflow-y: auto;
+    margin-left: 500px;
+    margin-top: -350px;
+}
+
+
+
+
+@import "bootstrap-sprockets";
+
+
+@import "bootswatch/cerulean/variables";
+
+
+@import "bootstrap";
+
+
+body { 
+  padding-top: 60px; 
+  background-color: #80BDD1;
+}
+
+
+@import "bootswatch/cerulean/bootswatch";
+
+
+@import "base";
+
+
