@@ -1,6 +1,7 @@
 class BlogPost < ActiveRecord::Base
   has_many :comments 
+  belongs_to :user
   
-  validates :title, :author, :blog_entry, presence: true
+  validates :title, :blog_entry, presence: true
   validates :title, uniqueness: true, length: { maximum: 140 }
 end

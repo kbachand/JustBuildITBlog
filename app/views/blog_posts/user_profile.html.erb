@@ -1,0 +1,36 @@
+<h1>Your profile</h1>
+<br>
+
+  <div class="profile">
+    <%= image_tag current_user.avatar,  :size => "150x150" %></p>
+    <p><strong>USERNAME:</strong> <%= current_user.username %></p>
+    <p><strong>NAME:</strong> <%= current_user.name %></p>
+    <p><strong>EMAIL:</strong> <%= current_user.email %></p>
+    <p><strong>BIRTHDAY:</strong> <%= current_user.birthday %></p>
+  </div>
+  <br>
+<%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-warning" %>
+<br>
+<br>
+<br>
+<%= link_to 'Back', blog_posts_path, class: "btn btn-primary" %>
+<br>
+<br>  
+<div class ="scroll">
+<h1>Your Posts</h1>
+<% current_user.blog_posts.each do |blog_post| %>
+   <div class="col-md-16">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+         <%= blog_post.title %>
+      </div>
+      <div class="panel-body">
+         <%= blog_post.user.username %><br />
+         <p><%= blog_post.blog_entry[0..250] %>... </p>
+         <p><%= link_to 'show more', blog_post %></p>
+         <p><%= blog_post.created_at.strftime(" created on: %b %d, %Y at %I:%M%p") %></p>
+      </div>
+<% end %>
+</div>
+</div>
+</div>

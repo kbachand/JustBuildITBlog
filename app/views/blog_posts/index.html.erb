@@ -1,4 +1,4 @@
-<h1>Current Blog Posts</h1>
+<h1>Welcome <%= current_user.name %></h1>
 
 <div class="row">
    <% @blog_posts.each do |blog_post| %>
@@ -8,15 +8,17 @@
          <%= blog_post.title %>
       </div>
       <div class="panel-body">
-         <%= blog_post.author %><br />
-         <p><%= blog_post.blog_entry.first(250) %></p>
+         <%= blog_post.user.username %>
+         <%= image_tag current_user.avatar, :size => "20x20" %>
+         <p><%= blog_post.blog_entry[0..250] %>... </p>
          <p><%= link_to 'show more', blog_post %></p>
-         <p><%= blog_post.created_at.strftime(" created on: %b %d, %Y, at %I:%M%p") %></p>
+         <p><%= blog_post.created_at.strftime(" created on: %b %d, %Y at %I:%M%p") %></p>
       </div>
       <div class="panel-footer">
-         <%= link_to 'Show', blog_post, class: "btn btn-primary" %>
+      <% if current_user.id == blog_post.user.id %>
          <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-warning" %>
          <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+         <% end %>
       </div>
     </div>
    </div>
@@ -25,3 +27,9 @@
 
 <br />
 <%= link_to 'New Blog Post', new_blog_post_path, class: "btn btn-primary" %>
+<br />
+<br />
+<footer>
+  <center><p>&copy 2016 JustBuiltIT Blog</p></center>
+</footer>
+
